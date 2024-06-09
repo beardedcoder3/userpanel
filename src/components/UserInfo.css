@@ -1,0 +1,64 @@
+/* UserInfo.css */
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .userinfo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--primary-bg-color);
+  }
+  
+  .userinfo-form {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  .userinfo-form h1 {
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: var(--primary-text-color);
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-text-color);
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--secondary-bg-color);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--primary-text-color);
+  }
+  
+  .userinfo-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  

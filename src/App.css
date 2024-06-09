@@ -1,38 +1,290 @@
-.App {
-  text-align: center;
+:root {
+  --primary-bg-color: #F9FAFB;
+  --primary-text-color: #36454F;
+  --secondary-bg-color: #ECF0F1;
+  --secondary-text-color: #2C3E50;
+  --hover-bg-color: #34495e;
+  --dropdown-bg-color: #f0f0f0;
+  --dark-primary-bg-color: #1C1C1C;
+  --dark-primary-text-color: #E0E0E0;
+  --dark-secondary-bg-color: #121212;
+  --dark-secondary-text-color: #E0E0E0;
+  --dark-hover-bg-color: #34495e;
+  --dark-dropdown-bg-color: #2c3e50;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* App specific styles */
+.app {
+  display: flex;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  width: 100%;
+  font-variation-settings: "slnt" 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Sidebar container should be fixed and take 250px width */
+.sidebar-container {
+  flex: 0 0 250px; /* Sidebar takes a fixed space of 250px */
+  transition: width 0.3s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header container should take the remaining space */
+.header-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+/* Content should be below the header and take the remaining space */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: var(--secondary-bg-color); /* Light background color */
+  color: var(--secondary-text-color); /* Dark text color */
+  overflow-y: auto;
+}
+
+/* Adjust header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px 20px;
+  background-color: var(--primary-bg-color); /* Light background color */
+  color: var(--primary-text-color); /* Dark text color */
+  border-bottom: 1px solid #dcdcdc;
+  transition: margin-left 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.header.dark-mode {
+  background-color: var(--dark-primary-bg-color); /* Dark mode background */
+  color: var(--dark-primary-text-color); /* Dark mode text */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu-icon {
+  cursor: pointer;
 }
+
+.faChevron.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+
+.header-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+/* Dark mode for the entire app */
+body.dark-mode .app {
+  background-color: var(--dark-secondary-bg-color); /* Dark mode background */
+  color: var(--dark-secondary-text-color); /* Dark mode text */
+}
+
+body.dark-mode .content {
+  background-color: var(--dark-secondary-bg-color); /* Dark mode content background */
+}
+
+/* Sidebar dark mode */
+body.dark-mode .sidebar {
+  background-color: var(--dark-primary-bg-color); /* Dark sidebar background */
+  color: var(--dark-primary-text-color); /* Dark mode text */
+}
+
+body.dark-mode .sidebar-option:hover,
+body.dark-mode .selected {
+  background-color: var(--dark-hover-bg-color); /* Hover and selected state */
+}
+
+body.dark-mode .dropdown {
+  background-color: var(--dark-dropdown-bg-color); /* Dark mode dropdown */
+}
+
+/* Add smooth transition for sidebar collapse */
+.sidebar.collapsed {
+  width: 80px; /* Width when sidebar is collapsed */
+  transition: width 0.3s;
+}
+
+/* Make sure the rest of the content shifts smoothly */
+.app .content, .header {
+  transition: margin-left 0.3s;
+}
+
+
+
+.app {
+  display: flex;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #F9FAFB;
+  color: #36454F;
+  height: 100vh;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  z-index: 1000; /* Ensure sidebar stays above other content */
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar .logo {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.sidebar .logo img {
+  width: 100px;
+}
+
+.sidebar .sidebar-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar .sidebar-option {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 13px;
+  position: relative;
+}
+
+.sidebar .sidebar-option:hover {
+  background-color: #34495e;
+}
+
+.sidebar .icon {
+  margin-right: 10px;
+}
+
+.sidebar .dropdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  max-height: 0;
+}
+
+.sidebar .dropdown.open {
+  max-height: 500px; /* Set a max-height that allows the dropdown to expand */
+}
+
+.sidebar .dropdown li {
+  padding: 10px 40px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 12px;
+  font-weight: 390;
+}
+
+.sidebar .dropdown li:hover {
+  background-color: #3b5998;
+}
+
+.sidebar .arrow {
+  position: absolute;
+  right: 20px;
+  transition: transform 0.3s;
+}
+
+.sidebar .arrow.open {
+  transform: rotate(180deg);
+}
+
+.sidebar .selected {
+  background-color: #34495e;
+  color: #fff;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-closed .main-content {
+  margin-left: 0;
+}
+
+.main-content .header {
+  background-color: #F9FAFB;
+  color: #36454F;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-content .page-title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.main-content .header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.main-content .header-icons .icon {
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.main-content .content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #ECF0F1;
+  color: #2C3E50;
+  overflow-y: auto;
+}
+
+
+body.dark-mode {
+  background-color: #1E1E1E;
+  color: #E0E0E0;
+}
+
+body.dark-mode .sidebar {
+  background-color: #2C2C2C;
+  color: #E0E0E0;
+}
+
+body.dark-mode .main-content .header {
+  background-color: #2C2C2C;
+  color: #E0E0E0;
+}
+
+body.dark-mode .main-content .content {
+  background-color: #1E1E1E;
+  color: #E0E0E0;
+}
+

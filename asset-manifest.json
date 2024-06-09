@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/userpanel/static/css/main.b7796097.css",
+    "main.js": "/userpanel/static/js/main.74788dbf.js",
+    "static/js/453.9c17afa3.chunk.js": "/userpanel/static/js/453.9c17afa3.chunk.js",
+    "static/media/logo.png": "/userpanel/static/media/logo.54349d293cb400f67d5e.png",
+    "static/media/logo1.png": "/userpanel/static/media/logo1.54349d293cb400f67d5e.png",
+    "static/media/newdesign4.png": "/userpanel/static/media/newdesign4.5a0224b53813fb366f96.png",
+    "static/media/newdesign2.png": "/userpanel/static/media/newdesign2.e401b3f692599ce93d41.png",
+    "static/media/newdesign1.png": "/userpanel/static/media/newdesign1.42077f0cace9025b5ec6.png",
+    "static/media/newdesign.png": "/userpanel/static/media/newdesign.dddf0694fda7ee448c21.png",
+    "static/media/newdesign3.png": "/userpanel/static/media/newdesign3.8681c0d39ab8d6f45a3e.png",
+    "static/media/newdesign5.png": "/userpanel/static/media/newdesign5.da3040bec14c7bdfb981.png",
+    "index.html": "/userpanel/index.html",
+    "main.b7796097.css.map": "/userpanel/static/css/main.b7796097.css.map",
+    "main.74788dbf.js.map": "/userpanel/static/js/main.74788dbf.js.map",
+    "453.9c17afa3.chunk.js.map": "/userpanel/static/js/453.9c17afa3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b7796097.css",
+    "static/js/main.74788dbf.js"
+  ]
+}
